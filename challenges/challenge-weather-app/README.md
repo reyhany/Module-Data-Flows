@@ -12,7 +12,12 @@ This app blends data from [openweathermap.org](https://openweathermap.org/) and
 - You will need to sign up for both services to get an API key to use each service.
 
   - **Open Weather** - sign up for API key at [https://openweathermap.org/appid](https://openweathermap.org/appid) and append it to URL as `APPID` URL parameter. For example, `http://api.openweathermap.org/data/2.5/weather?q=london&APPID=ABC` where `ABC` is the API key you were provided.
+  --> API key :  41ffba8d9094b8cd66a9718cdd0c4765
+  
   - **Unsplash** - sign up for Unsplash at [https://unsplash.com/join](https://unsplash.com/join) and register your app. You will receive an Access Key which you should append it to the URL as `client_id` URL param. For example, `https://api.unsplash.com/search/photos?query=snow&client_id=XYZ` where `XYZ` is your Access Key.
+Access Key  : PUcUD6_vuJZZFzyAJsxHQhewNpCSalILmg3bVpHVi1Y
+Secret Key  : S5VOktJpFGkhYTbjDRWjygl-Gq0AuolhFg9On_y0iY
+Application ID  :  837061
 
 - The base HTML and CSS have been supplied if you wish to focus on the programming and not the UI, but you should feel free to customise your application as you see fit. You can insert the main photo into the element with the id `photos` and thumbnails into the element with id `thumbs`. Use developer tools to inspect the structure of HTML in working example to get a sense of what it required.
 
