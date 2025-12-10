@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Dog Photo Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    button {
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    li {
+      margin: 1rem;
+    }
+    img {
+      width: 200px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Random Dog Photo Gallery</h1>
+
+  <button id="addDogButton">Add Random Dog</button>
+  <button id="clearGalleryButton">Clear Gallery</button>
+
+  <ul id="dogGallery"></ul>
+
+  <script>
+    const addDogButton = document.getElementById('addDogButton');
+    const clearGalleryButton = document.getElementById('clearGalleryButton');
+    const dogGallery = document.getElementById('dogGallery');
+
+    // Function to fetch a random dog image
+    async function fetchRandomDog() {
+      try {
+        const response = await fetch('https://dog.ceo/api/breeds/image/random');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        // Create new list item and image
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        img.src = data.message;
+        img.alt = 'Random Dog';
+        li.appendChild(img);
+
+        dogGallery.appendChild(li);
+      } catch (error) {
+        alert('Failed to fetch dog image: ' + error.message);
+        console.error('Error fetching dog image:', error);
+      }
+    }
+
+    // Event listeners
+    addDogButton.addEventListener('click', fetchRandomDog);
+    clearGalleryButton.addEventListener('click', () => {
+      dogGallery.innerHTML = '';
+    });
+  </script>
+
+</body>
+</html>
